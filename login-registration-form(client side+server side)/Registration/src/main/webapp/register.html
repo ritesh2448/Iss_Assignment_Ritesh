@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="validation.js"></script>
+</head>
+<body>
+  <h1>Registration Page</h1>
+  <form name="registrationForm" onsubmit="return validateRegistrationForm()" action="RegisterServlet" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required><br>
+    <input type="submit" value="Register">
+  </form>
+  <button onclick="window.location.href='login.html'">Already registered</button>
+  <script>
+    // Retrieve the error parameter from the URL query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+
+    // Display alert box if error parameter is present
+    if (error == '1') {
+        alert('Email is already registered.');
+    }
+</script>
+</body>
+</html>
